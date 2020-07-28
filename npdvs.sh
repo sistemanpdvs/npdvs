@@ -91,7 +91,7 @@ ${vr}   $TERMINAL_21  |      21      |  $IPSERV.$FX.$IP_CAIXA_21 ${endc}|
 ${g}   $TERMINAL_22  |      22      |  $IPSERV.$FX.$IP_CAIXA_22 ${endc} |
 ${vr}   $TERMINAL_ELETRO_01  | ELETRO 01    |  $IPSERV.$FX.$IP_CAIXA_ELETRO_01 ${endc}|
 ${g}   $TERMINAL_ELETRO_02  | ELETRO 02    |  $IPSERV.$FX.$IP_CAIXA_ELETRO_02 ${endc}|
-${vr}   $TERMINAL_LANCHONETE  | LANCHONETE   | $IPSERV.$FX.$IP_CAIXA_LANCHONETE${endc}|
+${vr}   $TERMINAL_LANCHONETE  | LANCHONETE   | $IPSERV.$FX.$IP_CAIXA_LANCHONETE  ${endc}|
 ${g}   $TERMINAL_ATACADOS  | ATACADO      | $IPSERV.$FX.$IP_CAIXA_ATACADOS  ${endc}|
 ${vr}   $TERMINAL_BUTECO  | BUTECO       | $IPSERV.$FX.$IP_CAIXA_BUTECO  ${endc}|"
     echo
