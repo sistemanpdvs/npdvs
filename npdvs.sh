@@ -892,7 +892,7 @@ adm () {
   echo && echo -en " ${y}Precione ENTER para continuar${endc}"
   read inpute
   echo && echo -e " Por favor, ${b}Digite o account e senha${end}, para o acesso..."
-  git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs/npdvs.sh
+  git clone https://github.com/sistemaclipdvs/npdvs.git
   sleep 1 && echo -e " ${b}NPDVs${end} Acesso concluído com sucesso "
   sleep 1 && echo -e " Restartando ${b}NPDVs${end}..."
   sleep 2
@@ -900,7 +900,7 @@ adm () {
 }
 ##################
 NPDVsADMstart () {
-  $spath/npdvs_admin/npdvs.sh
+  $spath/npdvs/npdvs.sh
   exit
 }
 # ADM
