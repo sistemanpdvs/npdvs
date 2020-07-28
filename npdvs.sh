@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# NPDVs.sh
+# CliPDVs.sh
 # Automatização sobre demanda
 # Nilsonlinux 23/07/2020
 # Colabore com o projeto
@@ -199,7 +199,7 @@ NPDVsupdate () {
   echo && echo -en " ${y}Precione ENTER para continuar${endc}"
   read input
   echo && echo -e " Atualizando ${b}NPDVs${end}, Por favor aguarde..."
-  wget https://raw.githubusercontent.com/sistemanpdvs/npdvs/master/npdvs.sh -O $spath/npdvs.sh &>/dev/null
+  wget https://raw.githubusercontent.com/nilsonlinux/npdvs/master/npdvs.sh -O $spath/npdvs.sh &>/dev/null
   sleep 1 && echo -e " ${b}NPDVs${end} Atualização aplicada com sucesso "
   sleep 1 && echo -e " Restartando ${b}NPDVs${end}..."
   sleep 2
@@ -207,8 +207,8 @@ NPDVsupdate () {
 }
 # New Version Check & Update
 NPDVsCheck () {
-  changelog=$(curl --silent -q https://raw.githubusercontent.com/sistemanpdvs/npdvs/master/changelog.txt)
-  uversion=$(curl --silent -q https://raw.githubusercontent.com/sistemanpdvs/npdvs/master/version.txt)
+  changelog=$(curl --silent -q https://raw.githubusercontent.com/nilsonlinux/npdvs/master/changelog.txt)
+  uversion=$(curl --silent -q https://raw.githubusercontent.com/nilsonlinux/npdvs/master/version.txt)
   if [[ $uversion > $version ]]; then
     echo -e " Checando atualização: ${r}Nova versão disponível"
     echo && echo -e " Versão em uso: ${y}$version${endc} ${g} ➤  Nova versão: ${endc}${y}$uversion${endc}"
@@ -892,7 +892,7 @@ adm () {
   echo && echo -en " ${y}Precione ENTER para continuar${endc}"
   read inpute
   echo && echo -e " Por favor, ${b}Digite o account e senha${end}, para o acesso..."
-  git clone https://github.com/sistemaclipdvs/npdvs.git
+  git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x /npdvs_admin/npdvs.sh 
   sleep 1 && echo -e " ${b}NPDVs${end} Acesso concluído com sucesso "
   sleep 1 && echo -e " Restartando ${b}NPDVs${end}..."
   sleep 2
@@ -900,7 +900,7 @@ adm () {
 }
 ##################
 NPDVsADMstart () {
-  $spath/npdvs/npdvs.sh
+  $spath/npdvs_admin/npdvs.sh
   exit
 }
 # ADM
