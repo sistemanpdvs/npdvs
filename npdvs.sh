@@ -9,7 +9,7 @@
 #Variáveis
 pdvs_ips='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
 GW="100"
-version="3.0"
+version="3.1"
 GMCORE='6.36'
 IPSERV='192.168'
 RES="1920x1030"
@@ -19,7 +19,6 @@ p='\033[0;35m'       # Purple
 v="\033[0;31m"       #vermelho
 vr="\033[01;32m"      #Verde
 br="\033[0;37m"      #Branco
-# Variável com a lista de máquinas
 b='\033[1m'
 u='\033[4m'
 bl='\E[30m'
@@ -837,6 +836,57 @@ sleep 5
 fi
 }
 # --------------
+# (1) Acesso SSH PDVs
+ssh_pdvs () {
+  logoNPDVs
+echo -e " ${c}ACESSO SSH TERMINAIS (NPDVs)${end}"
+painel
+echo -e "DIGITE A ${c}FAIXA${end} ${br}REFERÊNTE A SUA FILIAL: ${end}"
+read -p "$IPSERV." $read FX
+clear
+##########
+  clear
+logoNPDVs
+echo -e " ${c}ACESSO SSH TERMINAIS (NPDVs)${end}"
+loja
+echo -e "DIGITE O ${c}FINAL DO IP${end} ${br}ACESSAR VIA SSH: ${end}"
+read -p "$IPSERV.$FX." $read IP
+echo -e "${c}---------------------------------------------------${end}"
+echo -e "${y}⌛Aguarde enquanto testamos conexão com o terminal ⌛ ${end}"
+sleep 1
+if ! ping -c 2 $IPSERV.$FX.$IP >> /dev/null ; then
+clear
+echo -e "$v======================================= $end"
+echo -e "$v       TERMINAL DESCONECTADO.           $end"
+echo -e "$v======================================= $end"
+echo -e "$v      _____ ____  ____   ___    _       $end"
+echo -e "$v     | ____|  _ \|  _ \ / _ \  | |      $end"
+echo -e "$v     |  _| | |_) | |_) | | | | | |      $end"
+echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
+echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
+echo && echo -e "$v======================================= $end"
+echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
+echo -e "$a IP $end-$bu $IPSERV.$FX.$IP $end- $v Sem conexão ✗$end" 
+echo -e "$v======================================= $end"
+echo -en "${y}Precione enter para retornar para o manu.${endc}"
+read input
+echo -e "$v=======================================$end" 
+else
+clear
+echo -e "$vr======================================== $end"
+echo -e "$vr         TERMINAL CONECTADO.  $end "
+echo -e "$vr======================================== $end"
+sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$FX.$IP " ";
+echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
+echo -e "$a IP $end - $bu $IPSERV.$FX.$IP $end - $vr Conectado$end"
+echo -e "$vr======================================== $end"
+echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
+echo -e "$vr======================================== $end"
+echo -e "${y}Retornando para o menu principal.
+⌛Por favor aguarde ⌛${endc}"
+sleep 5
+fi
+}
 # Show About
 sobre () {
   clear
@@ -919,14 +969,15 @@ ${g}[ ${y}7 ${end}${g}]${end} ${vr} Atualizar PDVs${end} ${r}(Todos)${end}
 ${g}[ ${y}8 ${end}${g}]${end} ${vr} Desligar PDVs${end} ${r}(Todos)${end}
 ${g}[ ${y}9 ${end}${g}]${end} ${vr} Atualizar imagem PDVs${end} ${r}(Todos)${end}
 ${g}[ ${y}10${end}${g}]${end} ${vr} Deletar arquivos da pasta tmp${end}
+${g}[ ${y}11${end}${g}]${end} ${vr} Acesso SSH PDVs${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}11${end}${g}]${end} ${vr} Gm core${end} ${y}(Desktop)${end}
+${g}[ ${y}12${end}${g}]${end} ${vr} Gm core${end} ${y}(Desktop)${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}12${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
-${g}[ ${y}13${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
-${g}[ ${y}14${end}${g}]${end} ${vr} Links úteis${end}
+${g}[ ${y}13${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
+${g}[ ${y}14${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
+${g}[ ${y}15${end}${g}]${end} ${vr} Links úteis${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}15${end}${g}]${end} ${v} Acesso administrativo${end}
+${g}[ ${y}16${end}${g}]${end} ${v} Acesso administrativo${end}
 ${g}----------------------------------------- ${end}
 ${g}[ ${y}s ${end}${g}]${end} ${vr} Sobre${end}
 ${g}[ ${y}0 ${end}${g}]${end} ${vr} Sair${end}"
@@ -944,11 +995,12 @@ case $option in
 8) desligar_todos ;;
 9) atualizar_imagem_todos ;;
 10) dell_past_temp ;;
-11) gmcore ;;
-12) ping_test ;;
-13) ping_test_ip_link ;;
-14) links ;;
-15) adm ;;
+11) ssh_pdvs ;;
+12) gmcore ;;
+13) ping_test ;;
+14) ping_test_ip_link ;;
+15) links ;;
+16) adm ;;
 s) sobre ;;
 0) NPDVsExit ;;
 *) echo " \"$option\" Opção inválida"; sleep 1 ;;
