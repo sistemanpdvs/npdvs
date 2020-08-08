@@ -940,13 +940,43 @@ links () {
 }
 # ADM ###############################################
 adm () {
-if [ -e "$DIR" ] ; then
-echo "A Pasta ja existe"
-rm -rf npdvs_admin
+  logoNPDVs
+echo -e " ${r}ACESSO ADMINISTRATIVO (NPDVs)"
+echo -e "DIGITE O NOME DE ${y}USUÁRIO E SENHA${end} ${r}, PARA ACESSO: ${end}"
+  clear
+logoNPDVs
+echo -e "${r}---------------------------------------------------${end}"
+echo -e "${y}⌛Aguarde enquanto testamos conexão com a internet ⌛${end}"
+sleep 1
+if ! ping -c 1 8.8.8.8 >> /dev/null ; then
+clear
+echo -e "$v======================================= $end"
+echo -e "$v       VOCÊ ESTÁ DESCONECTADO.          $end"
+echo -e "$v======================================= $end"
+echo -e "$v      _____ ____  ____   ___    _       $end"
+echo -e "$v     | ____|  _ \|  _ \ / _ \  | |      $end"
+echo -e "$v     |  _| | |_) | |_) | | | | | |      $end"
+echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
+echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
+echo && echo -e "$v======================================= $end"
+echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
+echo -e "$v======================================= $end"
+echo -en "${y}Precione enter para retornar para o manu.${endc}"
+read input
+echo -e "$v=======================================$end" 
 else
-echo "Primeiro acesso... Digite o usuário e senha."
+clear
+echo -e "$vr======================================== $end"
+echo -e "$vr  DIGITE O USUÁRIO E SENHA PARA ACESSO.  $end "
+echo -e "$vr======================================== $end"
 git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_admin/npdvs.sh
+echo -e "$vr======================================== $end"
+echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
+echo -e "$vr======================================== $end"
+echo -e "${y}Acessando o acesso para o menu principal do acesso administrativo.
+⌛Por favor aguarde ⌛${endc}"
 NPDVsADMstart
+sleep 3
 fi
 }
 # ADM ###############################################
