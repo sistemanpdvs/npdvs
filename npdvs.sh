@@ -973,7 +973,7 @@ git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_ad
 echo -e "$vr======================================== $end"
 echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
 echo -e "$vr======================================== $end"
-echo -e "${y}Acessando o acesso para o menu principal do acesso administrativo.
+echo -e "${y}Você está sendo encaminhado para o menu principal do acesso administrativo.
 ⌛Por favor aguarde ⌛${endc}"
 NPDVsADMstart
 sleep 3
