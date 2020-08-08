@@ -4,23 +4,16 @@
 # Automatização sobre demanda
 # Nilsonlinux 23/07/2020
 # Colabore com o projeto
+# https://github.com/nilsonlinux/npdvs
 # -------------------------------------------------------
-# Variables
-# b=bold u=underline bl=black r=red g=green
-# y=yellow bu=blue m=magenta c=cyan w=white
-# endc=end-color end=end-argument
+#Variáveis
 pdvs_ips='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
 GW="100"
 version="3.1"
 GMCORE='6.36'
-MGVSERV="6.45"
-MGVUSER="leandro"
-MGVPASS="Mgv62019"
 IPSERV='192.168'
 RES="1920x1030"
-GUSER="maxpos_gw"
-GPASS="terminal"
-IMPORTA="pdvmaxipos.mateus"
+DIR=/$HOME/$USER/npdvs_admin/
 spath="$( cd "$( dirname $0 )" && pwd )"
 a='\033[1;33m'       # Amarelo
 p='\033[0;35m'       # Purple
@@ -150,12 +143,11 @@ logoNPDVs () {
   |  \| | |_) | | | \ \ / / __|
   | |\  |  __/| |_| |\ V /\__ \ 
   |_| \_|_|   |____/  \_/ |___/
-         © 2020 ${r}ADMIN
+             © 2020
           ${y}Versão :${end}${bu} ${version}${end}"
     echo
 }
-# NPDVs
-# Exit CliPDVs
+# Exit NPDVss
 NPDVsExit () {
   logoNPDVs 
   echo -e " Obrigado por utilizar o ${b}NPDVs${end}
@@ -164,7 +156,6 @@ NPDVsExit () {
   echo && sleep 1
   exit
 }
-
 # APT Update
 #aptgupd () {
 #  echo && echo -e " ${y}Preparing To Perform APT Update${endc}"
@@ -190,7 +181,7 @@ checkinternet () {
     NPDVsCheck
   else
     echo -e " Checando conexão com a internet: ${r}DESCONECTADO ❌${endc}
- ${y}Você precisa está conectado para a utilização do NPDVs${endc}"
+ ${y}Você precisa está conectado para a utilização do CliPDVs${endc}"
     echo -e " ${b}O Script está sendo${end} encerrado..."
     echo && sleep 5
     NPDVsExit
@@ -202,13 +193,13 @@ NPDVsStart () {
   exit
 }
 # New Version Check & Update
-NPDVsUpdate () {
+NPDVsupdate () {
   logoNPDVs
   echo -e " Preparando atualização ${b}NPDVs${end}"
   echo && echo -en " ${y}Precione ENTER para continuar${endc}"
   read input
   echo && echo -e " Atualizando ${b}NPDVs${end}, Por favor aguarde..."
-  rm -rf npdvs_admin && git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_admin/npdvs.sh
+  wget https://raw.githubusercontent.com/sistemanpdvs/npdvs/master/npdvs.sh -O $spath/npdvs.sh &>/dev/null
   sleep 1 && echo -e " ${b}NPDVs${end} Atualização aplicada com sucesso "
   sleep 1 && echo -e " Restartando ${b}NPDVs${end}..."
   sleep 2
@@ -225,7 +216,7 @@ NPDVsCheck () {
     echo && echo -en " ${y}Continuar com a atualização? {s/n}${endc} "
     read option
     case $option in
-      s) NPDVsUpdate ;;
+      s) NPDVsupdate ;;
       n) echo -e " ${y}Ok, Iniciando NPDVs.${endc}"; sleep 1; aptgupd ;;
       *) echo " \"$option\" Opção inválida, tente outra opção."; sleep 1; NPDVsCheck ;;
     esac
@@ -266,7 +257,7 @@ installfirefox () {
 # (1) Reiniciar PDVs
 reiniciar_pdvs () {
   logoNPDVs
-echo -e " ${r}REINICIALIZAÇÃO DOS TERMINAIS (NPDVs)${end}"
+echo -e " ${r}REINICIALIZAÇÃO DOS TERMINAIS (CliPDVs)${end}"
  painel
 echo -e "DIGITE A ${y}FAIXA${end} ${r}REFERÊNTE A SUA FILIAL: ${end}"
 read -p "$IPSERV." $read FX
@@ -412,7 +403,7 @@ clear
 ##########
   clear
 logoNPDVs
-echo -e " ${r}🚨 DESLIGAMENTO DOS TERMINAIS (NPDVs) 🚨 ${end}"
+echo -e " ${r}🚨 DESLIGAMENTO DOS TERMINAIS (CliPDVs) 🚨 ${end}"
 loja
 echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA DESLIGAR: ${end}"
 read -p "$IPSERV.$FX." $read IP
@@ -560,7 +551,7 @@ clear
 echo -e "$vr======================================== $end"
 echo -e "$vr         TERMINAL CONECTADO.  $end "
 echo -e "$vr======================================== $end"
-sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@$IPSERV.$FX.$IP "it-update-imagens.sh";
+sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$FX.$IP "it-update-imagens.sh";
 echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
 echo -e "$a IP $end - $bu $IPSERV.$FX.$IP $end - $vr Conectado$end"
 echo -e "$vr======================================== $end"
@@ -645,7 +636,7 @@ clear
 echo -e "$vr======================================== $end"
 echo -e "$vr         TERMINAL CONECTADO.  $end "
 echo -e "$vr======================================== $end"
-sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@$IPSERV.$FX.$IP "it-restart-application.sh";
+sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$FX.$IP "it-restart-application.sh";
 echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
 echo -e "$a IP $end -$bu $IPSERV.$FX.$IP $end- $vr Conectado ✔$end"
 echo -e "$vr======================================== $end"
@@ -794,139 +785,6 @@ echo -e "${y}Retornando para o menu principal.
 sleep 5
 fi
 }
-# --------------
-# (14) MGV-SERVER
-mgv_server () {
-  logoNPDVs
-echo -e " ${vr}ACESSO MGV SERVER (NPDVs)
----------------------------------------------------${end}
-  ${br}Acesso ao servidor MGV.${end}
-${vr}--------------------------------------------------- ${end}"
-echo -e "${y}⌛Aguarde enquanto testamos conexão com o servidor ⌛${end}"
-sleep 1
-if ! ping -c 1 ${IPSERV}.${MGVSERV} >> /dev/null ; then
-clear
-echo -e "$v======================================= $end"
-echo -e "$v       SERVIDOR DESCONECTADO.           $end"
-echo -e "$v======================================= $end"
-echo -e "$v      _____ ____  ____   ___    _       $end"
-echo -e "$v     | ____|  _ \|  _ \ / _ \  | |      $end"
-echo -e "$v     |  _| | |_) | |_) | | | | | |      $end"
-echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
-echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
-echo && echo -e "$v======================================= $end"
-echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
-echo -e "$a IP $end-$bu ${IPSERV}.${MGVSERV} $end- $v Sem conexão ✗$end" 
-echo -e "$v======================================= $end"
-echo -en "${y}Precione enter para retornar para o manu.${endc}"
-read input
-echo -e "$v=======================================$end" 
-else
-clear
-echo -e "$vr======================================== $end"
-echo -e "$vr         SERVIDOR CONECTADO.  $end "
-echo -e "$vr======================================== $end"
-rdesktop -g ${RES} -u ${MGVUSER} -p ${MGVPASS} ${IPSERV}.${MGVSERV}
-echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
-echo -e "$a IP $end -$bu ${IPSERV}.${MGVSERV} $end- $vr Conectado ✔$end"
-echo -e "$vr======================================== $end"
-echo -e "$vr    COMANDO EFETUADO COM SUCESSO... $end"
-echo -e "$vr======================================== $end"
-echo -e "${y}Retornando para o menu principal.
-⌛Por favor aguarde ⌛${endc}"
-sleep 3
-fi
-}
-# --------------
-# (15) MGV-SERVER
-gateway_filiais () {
-  logoNPDVs
-echo -e " ${c}ACESSO AO SERVIDOR ECD FILIAIS (NPDVs)"
-painel
-echo -e "DIGITE A ${c}FAIXA DA FILIAL${end} ${br}QUE DESEJA O ACESSO AO GATEWAY: ${end}"
-read -p "$IPSERV." $read FAIXA
-echo -e "${bu}---------------------------------------------------${end}"
-echo -e "${y}⌛Aguarde enquanto testamos conexão com o terminal ⌛ ${end}"
-sleep 1
-if ! ping -c 2 ${IPSERV}.${FAIXA}.${GW} >> /dev/null ; then
-clear
-echo -e "$v======================================= $end"
-echo -e "$v       TERMINAL DESCONECTADO.           $end"
-echo -e "$v======================================= $end"
-echo -e "$v      _____ ____  ____   ___    _       $end"
-echo -e "$v     | ____|  _ \|  _ \ / _ \  | |      $end"
-echo -e "$v     |  _| | |_) | |_) | | | | | |      $end"
-echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
-echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
-echo && echo -e "$v======================================= $end"
-echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
-echo -e "$a IP $end-$bu ${IPSERV}.${FAIXA}.${GW} $end- $v Sem conexão ✗$end" 
-echo -e "$v======================================= $end"
-echo -en "${y}Precione enter para retornar para o manu.${endc}"
-read input
-echo -e "$v=======================================$end" 
-else
-clear
-echo -e "$vr======================================== $end"
-echo -e "$vr         SERVIDOR CONECTADO.  $end "
-echo -e "$vr======================================== $end"
-rdesktop -g ${RES} -u ${GUSER} -p ${GPASS} ${IPSERV}.${FAIXA}.${GW}         
-echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
-echo -e "$a IP $end - $bu ${IPSERV}.${FAIXA}.${GW} $end - $vr Conectado$end"
-echo -e "$vr======================================== $end"
-echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
-echo -e "$vr======================================== $end"
-echo -e "${y}Retornando para o menu principal.
-⌛Por favor aguarde ⌛${endc}"
-sleep 3
-fi
-}
-###TEST
-# (13) IMPORTA
-importa_pdvs () {
-  logoNPDVs
-echo -e " ${vr}ACESSO SERVIDOR IMPORTA (NPDVs)
----------------------------------------------------${end}
-  ${br}Script externa.${end}
-${vr}--------------------------------------------------- ${end}"
-echo -e "${y}⌛Aguarde enquanto testamos conexão com o servidor ⌛${end}"
-sleep 1
-if ! ping -c 1 ${IMPORTA} >> /dev/null ; then
-clear
-echo -e "$v======================================= $end"
-echo -e "$v       SERVIDOR DESCONECTADO.           $end"
-echo -e "$v======================================= $end"
-echo -e "$v      _____ ____  ____   ___    _       $end"
-echo -e "$v     | ____|  _ \|  _ \ / _ \  | |      $end"
-echo -e "$v     |  _| | |_) | |_) | | | | | |      $end"
-echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
-echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
-echo && echo -e "$v======================================= $end"
-echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
-echo -e "$a IP $end-$bu ${IMPORTA} $end- $v Sem conexão ✗$end" 
-echo -e "$v======================================= $end"
-echo -en "${y}Precione enter para retornar para o manu.${endc}"
-read input
-echo -e "$v=======================================$end" 
-else
-clear
-echo -e "$vr======================================== $end"
-echo -e "$vr         IMPORTA CONECTADO.  $end "
-echo -e "$vr         ${IMPORTA}  $end "
-echo -e "$vr======================================== $end"
-sshpass -p importa ssh -o "StrictHostKeyChecking no" importa@$IMPORTA "";
-echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
-echo -e "$a IP $end -$bu ${IMPORTA} $end- $vr Conectado ✔$end"
-echo -e "$vr======================================== $end"
-echo -e "$vr    COMANDO EFETUADO COM SUCESSO... $end"
-echo -e "$vr======================================== $end"
-echo -e "${y}Retornando para o menu principal.
-⌛Por favor aguarde ⌛${endc}"
-sleep 3
-fi
-}
-# --------------
-
 ###################################  (10) DELETAR PASTA /TMP #/mpos/maxipos/tmp ######################################
 dell_past_temp () {
   logoNPDVs
@@ -1037,11 +895,11 @@ sobre () {
   clear
   echo -e "
     ###########################################################
-    #                  Sobre o NPDVs                          #
+    #                  Sobre o NPDVs                        #
     #     Script para automatização de tarefas CPDs Regional. #
     ###########################################################
     #    -- Op-System  :   Linux / Termux                     #
-    #    -- Codename   :   NPDVs                              #
+    #    -- Codename   :   CliPDVs                            #
     #    -- Version    :   V-build ($version)                      #
     #    -- Coder      :   GitHub                             #
     ###########################################################
@@ -1080,6 +938,54 @@ links () {
   echo && echo -en " ${yellow}Precione enter para retornar ao Menu.${endc}"
   read input
 }
+# ADM ###############################################
+adm () {
+  logoNPDVs
+echo -e " ${r}ACESSO ADMINISTRATIVO (NPDVs)"
+echo -e "DIGITE O NOME DE ${y}USUÁRIO E SENHA${end} ${r}, PARA ACESSO: ${end}"
+  clear
+logoNPDVs
+echo -e "${r}---------------------------------------------------${end}"
+echo -e "${y}⌛Aguarde enquanto testamos conexão com a internet ⌛${end}"
+sleep 1
+if ! ping -c 1 8.8.8.8 >> /dev/null ; then
+clear
+echo -e "$v======================================= $end"
+echo -e "$v       VOCÊ ESTÁ DESCONECTADO.          $end"
+echo -e "$v======================================= $end"
+echo -e "$v      _____ ____  ____   ___    _       $end"
+echo -e "$v     | ____|  _ \|  _ \ / _ \  | |      $end"
+echo -e "$v     |  _| | |_) | |_) | | | | | |      $end"
+echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
+echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
+echo && echo -e "$v======================================= $end"
+echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
+echo -e "$v======================================= $end"
+echo -en "${y}Precione enter para retornar para o manu.${endc}"
+read input
+echo -e "$v=======================================$end" 
+else
+clear
+echo -e "$vr======================================== $end"
+echo -e "$vr  DIGITE O USUÁRIO E SENHA PARA ACESSO.  $end "
+echo -e "$vr======================================== $end"
+git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_admin/npdvs.sh
+echo -e "$vr======================================== $end"
+echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
+echo -e "$vr======================================== $end"
+echo -e "${y}Acessando o acesso para o menu principal do acesso administrativo.
+⌛Por favor aguarde ⌛${endc}"
+NPDVsADMstart
+sleep 3
+fi
+}
+# ADM ###############################################
+##################
+NPDVsADMstart () {
+  $spath/npdvs_admin/npdvs.sh
+  exit
+}
+# ADM
 # Infinite Loop To Show Menu Untill Exit
 while :
 do
@@ -1098,13 +1004,12 @@ ${g}[ ${y}10${end}${g}]${end} ${vr} Deletar arquivos da pasta tmp${end}
 ${g}[ ${y}11${end}${g}]${end} ${vr} Acesso SSH PDVs${end}
 ${g}----------------------------------------- ${end}
 ${g}[ ${y}12${end}${g}]${end} ${vr} Gm core${end} ${y}(Desktop)${end}
-${g}[ ${y}13${end}${g}]${end} ${vr} MGV Server${end} ${y}(Desktop)${end}
-${g}[ ${y}14${end}${g}]${end} ${vr} Acesso Gateway Filiais${end} ${y}(Desktop)${end}
-${g}[ ${y}15${end}${g}]${end} ${vr} Acesso Importa PDVs${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}16${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
-${g}[ ${y}17${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
-${g}[ ${y}18${end}${g}]${end} ${vr} Links úteis${end}
+${g}[ ${y}13${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
+${g}[ ${y}14${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
+${g}[ ${y}15${end}${g}]${end} ${vr} Links úteis${end}
+${g}----------------------------------------- ${end}
+${g}[ ${y}16${end}${g}]${end} ${v} Acesso administrativo${end}
 ${g}----------------------------------------- ${end}
 ${g}[ ${y}s ${end}${g}]${end} ${vr} Sobre${end}
 ${g}[ ${y}0 ${end}${g}]${end} ${vr} Sair${end}"
@@ -1124,12 +1029,10 @@ case $option in
 10) dell_past_temp ;;
 11) ssh_pdvs ;;
 12) gmcore ;;
-13) mgv_server ;;
-14) gateway_filiais ;;
-15) importa_pdvs ;;
-16) ping_test ;;
-17) ping_test_ip_link ;;
-18) links ;;
+13) ping_test ;;
+14) ping_test_ip_link ;;
+15) links ;;
+16) adm ;;
 s) sobre ;;
 0) NPDVsExit ;;
 *) echo " \"$option\" Opção inválida"; sleep 1 ;;
