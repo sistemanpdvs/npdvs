@@ -875,8 +875,9 @@ else
 clear
 echo -e "$vr======================================== $end"
 echo -e "$vr         TERMINAL CONECTADO.  $end "
+echo -e "$a IP $end - $bu $IPSERV.$FX.$IP $end - $vr Conectado$end"
 echo -e "$vr======================================== $end"
-sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$FX.$IP " ";
+sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@$IPSERV.$FX.$IP
 echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
 echo -e "$a IP $end - $bu $IPSERV.$FX.$IP $end - $vr Conectado$end"
 echo -e "$vr======================================== $end"
@@ -884,7 +885,7 @@ echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
 echo -e "$vr======================================== $end"
 echo -e "${y}Retornando para o menu principal.
 ⌛Por favor aguarde ⌛${endc}"
-sleep 5
+sleep 3
 fi
 }
 # Show About
