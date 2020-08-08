@@ -943,7 +943,7 @@ adm () {
   echo && echo -en " ${y}Precione ENTER para continuar${endc}"
   read inpute
   echo && echo -e " Por favor, ${b}Digite o account e senha${end}, para o acesso..."
-  git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_admin/npdvs.sh 
+  rm -rf npdvs_admin && git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_admin/npdvs.sh 
   sleep 1 && echo -e " ${b}NPDVs${end} Acesso concluído com sucesso "
   sleep 1 && echo -e " Restartando ${b}NPDVs${end}..."
   sleep 2
