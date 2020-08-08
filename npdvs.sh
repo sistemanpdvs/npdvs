@@ -13,6 +13,7 @@ version="3.1"
 GMCORE='6.36'
 IPSERV='192.168'
 RES="1920x1030"
+DIR=/$HOME/$USER/npdvs_admin/
 spath="$( cd "$( dirname $0 )" && pwd )"
 a='\033[1;33m'       # Amarelo
 p='\033[0;35m'       # Purple
@@ -936,19 +937,18 @@ links () {
   echo && echo -en " ${yellow}Precione enter para retornar ao Menu.${endc}"
   read input
 }
-# ADM
+# ADM ###############################################
 adm () {
-  logoNPDVs
-  echo -e " Preparando acesso administrativo ${b}NPDVs${end}"
-  echo && echo -en " ${y}Precione ENTER para continuar${endc}"
-  read inpute
-  echo && echo -e " Por favor, ${b}Digite o account e senha${end}, para o acesso..."
-  rm -rf npdvs_admin && git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_admin/npdvs.sh 
-  sleep 1 && echo -e " ${b}NPDVs${end} Acesso concluído com sucesso "
-  sleep 1 && echo -e " Restartando ${b}NPDVs${end}..."
-  sleep 2
-  NPDVsADMstart
+if [ -e "$DIR" ] ; then
+echo "A Pasta ja existe"
+rm -rf npdvs_admin
+else
+echo "PRIMEIRO ACESSO"
+git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_admin/npdvs.sh
+fi
+NPDVsADMstart
 }
+# ADM ###############################################
 ##################
 NPDVsADMstart () {
   $spath/npdvs_admin/npdvs.sh
