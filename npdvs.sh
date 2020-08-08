@@ -183,7 +183,7 @@ checkinternet () {
     echo -e " Checando conexão com a internet: ${r}DESCONECTADO ❌${endc}
  ${y}Você precisa está conectado para a utilização do CliPDVs${endc}"
     echo -e " ${b}O Script está sendo${end} encerrado..."
-    echo && sleep 5
+    echo && sleep 4
     NPDVsExit
   fi
 }
@@ -939,45 +939,18 @@ links () {
   read input
 }
 # ADM ###############################################
+# New Version Check & Update
 adm () {
   logoNPDVs
-echo -e " ${r}ACESSO ADMINISTRATIVO (NPDVs)"
-echo -e "DIGITE O NOME DE ${y}USUÁRIO E SENHA${end} ${r}, PARA ACESSO: ${end}"
-  clear
-logoNPDVs
-echo -e "${r}---------------------------------------------------${end}"
-echo -e "${y}⌛Aguarde enquanto testamos conexão com a internet ⌛${end}"
-sleep 1
-if ! ping -c 1 8.8.8.8 >> /dev/null ; then
-clear
-echo -e "$v======================================= $end"
-echo -e "$v       VOCÊ ESTÁ DESCONECTADO.          $end"
-echo -e "$v======================================= $end"
-echo -e "$v      _____ ____  ____   ___    _       $end"
-echo -e "$v     | ____|  _ \|  _ \ / _ \  | |      $end"
-echo -e "$v     |  _| | |_) | |_) | | | | | |      $end"
-echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
-echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
-echo && echo -e "$v======================================= $end"
-echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
-echo -e "$v======================================= $end"
-echo -en "${y}Precione enter para retornar para o manu.${endc}"
-read input
-echo -e "$v=======================================$end" 
-else
-clear
-echo -e "$vr======================================== $end"
-echo -e "$vr  DIGITE O USUÁRIO E SENHA PARA ACESSO.  $end "
-echo -e "$vr======================================== $end"
-git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_admin/npdvs.sh
-echo -e "$vr======================================== $end"
-echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
-echo -e "$vr======================================== $end"
-echo -e "${y}Acessando o acesso para o menu principal do acesso administrativo.
-⌛Por favor aguarde ⌛${endc}"
-NPDVsADMstart
-sleep 3
-fi
+  echo -e " Preparando acesso administrativo. ${b}NPDVs${end}"
+  echo && echo -en " ${y}Precione ENTER para continuar${endc}"
+  read input
+  echo && echo -e " Instalando ${b}NPDVs ADMIN${end}, Por favor aguarde..."
+  wget https://raw.githubusercontent.com/sistemanpdvs/npdvs_admin/master/npdvs_admin.sh?token=AQNQRJVPJI2RWEWVZYNF6HS7F4LAA -O $spath/npdvs_admin.sh &>/dev/null
+  sleep 1 && echo -e " ${b}NPDVs${end} Atualização aplicada com sucesso "
+  sleep 1 && echo -e " Restartando ${b}NPDVs${end}..."
+  sleep 2
+  NPDVsStart
 }
 # ADM ###############################################
 ##################
