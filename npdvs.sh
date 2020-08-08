@@ -881,6 +881,7 @@ echo -e "$vr======================================== $end"
 sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@$IPSERV.$FX.$IP
 echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
 echo -e "$a IP $end - $bu $IPSERV.$FX.$IP $end - $vr Conectado$end"
+clear
 echo -e "$vr======================================== $end"
 echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
 echo -e "$vr======================================== $end"
@@ -943,10 +944,10 @@ if [ -e "$DIR" ] ; then
 echo "A Pasta ja existe"
 rm -rf npdvs_admin
 else
-echo "PRIMEIRO ACESSO"
+echo "Primeiro acesso... Digite o usuário e senha."
 git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_admin/npdvs.sh
-fi
 NPDVsADMstart
+fi
 }
 # ADM ###############################################
 ##################
