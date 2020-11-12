@@ -132,6 +132,8 @@ LOJA  | ${c}CIDADE ${endc}               |${vr}FAIXA${endc}|
   435 | ${c}CAMINO COROATÁ${endc}        |${vr}41 ${endc}  |
   436 | ${c}CAMINO SANTA INES${endc}     |${vr}169 ${endc} |
   439 | ${c}CAMINO MIRANDA${endc}        |${vr}170 ${endc} |
+  445 | ${c}CAMINO ITAPECURÚ${endc}      |${vr}170 ${endc} |
+  447 | ${c}CAMINO TUTÓIA${endc}         |${vr}146 ${endc} |
 ------------------------------------- ${end}"
 }
 # NPDVs Logo
