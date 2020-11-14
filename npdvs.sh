@@ -10,6 +10,7 @@
 pdvs_ips='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
 GW="100"
 version="3.3"
+192.168.6.36="GMCORE"
 GMCORE='6.36'
 IPSERV='192.168'
 RES="1920x1030"
@@ -676,7 +677,7 @@ sleep 2
 if ! ping -c 1 $IPSERV.$FX.$IP >> /dev/null ; then
 clear
 echo -e "$v======================================= $end"
-echo -e "$v       TERMINAL DESCONECTADO.           $end"
+echo -e "$v       $IPSERV.FX.$IP DESCONECTADO.     $end"
 echo -e "$v======================================= $end"
 echo -e "$v      _____ ____  ____   ___    _       $end"
 echo -e "$v     | ____|  _ \|  _ \ / _ \  | |      $end"
@@ -693,7 +694,7 @@ echo -e "$v=======================================$end"
 else
 clear
 echo -e "$vr======================================= $end"  
-echo -e "$vr         TERMINAL CONECTADO.  $end "
+echo -e "$vr       $IPSERV.$FX.$IP CONECTADO.        $end"
 echo -e "$vr======================================= $end"  
 echo -e "$vr======[ $br Status da requisição $ec $vr]======     $end"
 echo -e "$a IP $end - $bu $IPSERV.$FX.$IP $end - $vr Conectado ✔$end"      
@@ -750,7 +751,7 @@ gmcore () {
   logoNPDVs
 echo -e " ${vr}ACESSO GMCORE (NPDVs)
 ---------------------------------------------------${end}
-  ${br}Acesso ao gmcore por faixa.${end}
+  ${br}Acesso ao gmcore.${end}
 ${vr}--------------------------------------------------- ${end}"
 echo -e "${y}⌛Aguarde enquanto testamos conexão com o servidor ⌛${end}"
 sleep 1
@@ -982,12 +983,17 @@ sleep 3
 fi
 }
 # ADM ###############################################
-##################
 NPDVsADMstart () {
   $spath/npdvs_admin/npdvs.sh
   exit
 }
 # ADM
+# NPDVs Status Host Monitor
+npdvs_status () {
+clear
+./npdvs_status.sh
+}
+# NPDVs Status Host Monitor
 # Infinite Loop To Show Menu Untill Exit
 while :
 do
@@ -1009,9 +1015,10 @@ ${g}[ ${y}12${end}${g}]${end} ${vr} Gm core${end} ${y}(Desktop)${end}
 ${g}----------------------------------------- ${end}
 ${g}[ ${y}13${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
 ${g}[ ${y}14${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
-${g}[ ${y}15${end}${g}]${end} ${vr} Links úteis${end}
+${g}[ ${y}15${end}${g}]${end} ${vr} Monitor de Hosts${end}
+${g}[ ${y}16${end}${g}]${end} ${vr} Links úteis${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}16${end}${g}]${end} ${v} Acesso administrativo${end}
+${g}[ ${y}17${end}${g}]${end} ${v} Acesso administrativo${end}
 ${g}----------------------------------------- ${end}
 ${g}[ ${y}s ${end}${g}]${end} ${vr} Sobre${end}
 ${g}[ ${y}0 ${end}${g}]${end} ${vr} Sair${end}"
@@ -1033,8 +1040,9 @@ case $option in
 12) gmcore ;;
 13) ping_test ;;
 14) ping_test_ip_link ;;
-15) links ;;
-16) adm ;;
+15) npdvs_status ;;
+16) links ;;
+17) adm ;;
 s) sobre ;;
 0) NPDVsExit ;;
 *) echo " \"$option\" Opção inválida"; sleep 1 ;;
