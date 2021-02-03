@@ -13,9 +13,6 @@ pdvs_ips='59 124 25 102 25 102 103 104 139 105 107 120 140 110 11 144 113 114 12
 GW="254"
 version="3.4"
 GMCORE='6.36'
-MGVSERV="6.45"
-MGVUSER="leandro"
-MGVPASS="150491leo"
 IPSERV='192.168'
 RES="1366x725"
 GUSER="maxpos_gw"
@@ -1170,17 +1167,14 @@ ${g}[ ${y}9 ${end}${g}]${end} ${vr} Atualizar imagem PDVs${end} ${r}(Todos)${end
 ${g}[ ${y}10${end}${g}]${end} ${vr} Atualizar versão${end}
 ${g}[ ${y}11${end}${g}]${end} ${vr} Deletar arquivos da pasta tmp${end}
 ${g}[ ${y}12${end}${g}]${end} ${vr} Acesso SSH PDVs${end}
-${g}[ ${y}13${end}${g}]${end} ${vr} Acesso SSH GATEWAY LOJAS${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}14${end}${g}]${end} ${vr} Gm core${end} ${y}(Desktop)${end}
-${g}[ ${y}15${end}${g}]${end} ${vr} MGV Server${end} ${y}(Desktop)${end}
-${g}[ ${y}16${end}${g}]${end} ${vr} Acesso Gateway Filiais${end} ${y}(Desktop)${end}
-${g}[ ${y}17${end}${g}]${end} ${vr} Acesso Importa PDVs${end}
+${g}[ ${y}13${end}${g}]${end} ${vr} Gm core${end} ${y}(Desktop)${end}
+${g}[ ${y}14${end}${g}]${end} ${vr} Acesso Importa PDVs${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}18${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
-${g}[ ${y}19${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
-${g}[ ${y}20${end}${g}]${end} ${vr} Monitor de Hosts${end}
-${g}[ ${y}21${end}${g}]${end} ${vr} Links úteis${end}
+${g}[ ${y}15${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
+${g}[ ${y}16${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
+${g}[ ${y}17${end}${g}]${end} ${vr} Monitor de Hosts${end}
+${g}[ ${y}18${end}${g}]${end} ${vr} Links úteis${end}
 ${g}----------------------------------------- ${end}
 ${g}[ ${y}s ${end}${g}]${end} ${vr} Sobre${end}
 ${g}[ ${y}0 ${end}${g}]${end} ${vr} Sair${end}"
@@ -1200,15 +1194,13 @@ case $option in
 10) att_ver ;;
 11) dell_past_temp ;;
 12) ssh_pdvs ;;
-13) ssh_gateway ;;
-14) gmcore ;;
-15) mgv_server ;;
-16) gateway_filiais ;;
-17) importa_pdvs ;;
-18) ping_test ;;
-19) ping_test_ip_link ;;
-20) npdvs_monitor ;;
-21) links ;;
+13) gmcore ;;
+14) gateway_filiais ;;
+15) importa_pdvs ;;
+16) ping_test ;;
+17) ping_test_ip_link ;;
+) npdvs_monitor ;;
+18) links ;;
 s) sobre ;;
 0) NPDVsExit ;;
 *) echo " \"$option\" Opção inválida"; sleep 1 ;;
