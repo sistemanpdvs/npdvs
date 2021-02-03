@@ -11,7 +11,7 @@
 # endc=end-color end=end-argument
 pdvs_ips='59 124 25 102 25 102 103 104 139 105 107 120 140 110 11 144 113 114 128 116 55 132 138 130 225 117' #FINAL dos IPS DOS PDVS...
 GW="254"
-version="3.2"
+version="3.3"
 GMCORE='6.36'
 MGVSERV="6.45"
 MGVUSER="leandro"
@@ -50,6 +50,7 @@ LOJA  | ${c}CIDADE ${endc}               |${vr}FAIXA${endc}|
   3   | ${c}SUPER SANTA INES${endc}      |${vr}3    ${endc}|
   32  | ${c}MIX TIMON${endc}             |${vr}46   ${endc}|
   39  | ${c}MIX CHAPADINHA${endc}        |${vr}114  ${endc}|
+  40  | ${c}SUPER BARRA DO CORDAA${endc} |${vr}231  ${endc}|
   41  | ${c}MIX CAXIAS${endc}            |${vr}11   ${endc}|
   47  | ${c}MIX BACABAL${endc}           |${vr}115 ${endc} |
   48  | ${c}MIX PEDREIRAS${endc}         |${vr}93 ${endc}  |
