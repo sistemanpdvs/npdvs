@@ -11,12 +11,10 @@
 # endc=end-color end=end-argument
 pdvs_ips='59 124 25 102 25 102 103 104 139 105 107 120 140 110 11 144 113 114 128 116 55 132 138 130 225 117' #FINAL dos IPS DOS PDVS...
 GW="254"
-version="3.4"
+version="3.5"
 GMCORE='6.36'
 IPSERV='192.168'
 RES="1366x725"
-GUSER="maxpos_gw"
-GPASS="terminal"
 IMPORTA="pdvmaxipos.mateus"
 spath="$( cd "$( dirname $0 )" && pwd )"
 a='\033[1;33m'       # Amarelo
