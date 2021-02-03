@@ -9,7 +9,7 @@
 #Variáveis
 pdvs_ips='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
 GW="100"
-version="3.3"
+version="3.4"
 192.168.6.36="GMCORE"
 GMCORE='6.36'
 IPSERV='192.168'
@@ -42,6 +42,7 @@ LOJA  | ${c}CIDADE ${endc}               |${vr}FAIXA${endc}|
   3   | ${c}SUPER SANTA INES${endc}      |${vr}3    ${endc}|
   32  | ${c}MIX TIMON${endc}             |${vr}46   ${endc}|
   39  | ${c}MIX CHAPADINHA${endc}        |${vr}114  ${endc}|
+  40  | ${c}SUPER BARRA DO CORDA${endc}  |${vr}231  ${endc}|
   41  | ${c}MIX CAXIAS${endc}            |${vr}11   ${endc}|
   47  | ${c}MIX BACABAL${endc}           |${vr}115 ${endc} |
   48  | ${c}MIX PEDREIRAS${endc}         |${vr}93 ${endc}  |
