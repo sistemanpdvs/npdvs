@@ -68,7 +68,7 @@ LOJA  | ${c}CIDADE ${endc}               |${vr}FAIXA${endc}|
   252 | ${c}MIX TERESINA${endc}          |${vr}161 ${endc} |
   431 | ${c}CAMINO LAGO DA PEDRA${endc}  |${vr}144 ${endc} |
   433 | ${c}CAMINO VIANA${endc}          |${vr}136 ${endc} |
-  434 | ${c}CAMINO BARREIRINHAS${endc}   |${vr}000 ${endc} |	
+  434 | ${c}CAMINO BARREIRINHAS${endc}   |${vr}000 ${endc} |  
   435 | ${c}CAMINO COROATÁ${endc}        |${vr}41 ${endc}  |
   436 | ${c}CAMINO SANTA INES${endc}     |${vr}169 ${endc} |
   439 | ${c}CAMINO MIRANDA${endc}        |${vr}170 ${endc} |
@@ -1148,6 +1148,52 @@ sleep 5
 fi
 }
 # --------------
+###################################  COPIAR/ATUALIZAR VERSÂO DE UM PDV PARA O OUTRO ######################################
+administrativo () {
+  logoNPDVs
+echo -e " ${r} ACESSO ADMINISTRATIVO (NPDVs)"
+painel
+echo -e "${c}---------------------------------------------------${end}"
+echo -e "${y}⌛Aguarde enquanto testamos a sua conexão ⌛       ${end}"
+echo -e "${c}---------------------------------------------------${end}"
+sleep 2
+if ! ping -c 1 8.8.8.8 >> /dev/null ; then
+clear
+  logoNPDVs
+echo -e "$v======================================= $end"
+echo -e "$v                 SEM CONEXÃO.           $end"
+echo -e "$v======================================= $end"
+echo -e "$v      _____ ____  ____   ___    _       $end"
+echo -e "$v     | ____|  _ \|  _ \ / _ \  | |      $end"
+echo -e "$v     |  _| | |_) | |_) | | | | | |      $end"
+echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
+echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
+echo && echo -e "$v======================================= $end"
+echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
+echo -e "$a IP $end-$bu $IPSERV.$FX.$IP $end- $v Sem conexão ✗$end" 
+echo -e "$v======================================= $end"
+echo -en "${y}Precione enter para retornar para o manu.${endc}"
+read input
+echo -e "$v=======================================$end" 
+else
+clear
+  logoNPDVs
+echo -e "$vr======================================== $end"
+echo -e "$vr         SUCESSO     .                   $end "
+echo -e "$a IP $end - $bu $IPSERV.$FX.$IP $end - $vr Conectado$end"
+echo -e "$vr======================================== $end"
+sleep 2
+git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_admin/npdvs.sh && ./npdvs_admin/npdvs.sh
+    echo "Etapa concluida com sucesso"
+   sleep 2
+echo -e "$vr======================================== $end"
+echo -e "$vr         NPDVS ATUALIZADO COM SUCESSO... $end"
+echo -e "$vr======================================== $end"
+echo -e "${y}Retornando para o menu principal.
+⌛Por favor aguarde ⌛${endc}"
+sleep 5
+fi
+}
 # Infinite Loop To Show Menu Untill Exit
 while :
 do
@@ -1174,6 +1220,8 @@ ${g}[ ${y}16${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
 ${g}[ ${y}17${end}${g}]${end} ${vr} Monitor de Hosts${end}
 ${g}[ ${y}18${end}${g}]${end} ${vr} Links úteis${end}
 ${g}----------------------------------------- ${end}
+${g}[ ${y}19${end}${g}]${end} ${vr} Acesso administrativo${end}
+${g}----------------------------------------- ${end}
 ${g}[ ${y}s ${end}${g}]${end} ${vr} Sobre${end}
 ${g}[ ${y}0 ${end}${g}]${end} ${vr} Sair${end}"
 echo -e "${g}-----------------------------------------${end}"
@@ -1199,6 +1247,7 @@ case $option in
 17) ping_test_ip_link ;;
 ) npdvs_monitor ;;
 18) links ;;
+19) administrativo
 s) sobre ;;
 0) NPDVsExit ;;
 *) echo " \"$option\" Opção inválida"; sleep 1 ;;
