@@ -15,7 +15,6 @@ version="3.5"
 GMCORE='6.36'
 IPSERV='192.168'
 RES="1366x725"
-IMPORTA="pdvmaxipos.mateus"
 spath="$( cd "$( dirname $0 )" && pwd )"
 a='\033[1;33m'       # Amarelo
 p='\033[0;35m'       # Purple
@@ -1213,14 +1212,13 @@ ${g}[ ${y}11${end}${g}]${end} ${vr} Deletar arquivos da pasta tmp${end}
 ${g}[ ${y}12${end}${g}]${end} ${vr} Acesso SSH PDVs${end}
 ${g}----------------------------------------- ${end}
 ${g}[ ${y}13${end}${g}]${end} ${vr} Gm core${end} ${y}(Desktop)${end}
-${g}[ ${y}14${end}${g}]${end} ${vr} Acesso Importa PDVs${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}15${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
-${g}[ ${y}16${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
-${g}[ ${y}17${end}${g}]${end} ${vr} Monitor de Hosts${end}
-${g}[ ${y}18${end}${g}]${end} ${vr} Links úteis${end}
+${g}[ ${y}14${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
+${g}[ ${y}15${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
+${g}[ ${y}16${end}${g}]${end} ${vr} Monitor de Hosts${end}
+${g}[ ${y}17${end}${g}]${end} ${vr} Links úteis${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}19${end}${g}]${end} ${vr} Acesso administrativo${end}
+${g}[ ${y}18${end}${g}]${end} ${vr} Acesso administrativo${end}
 ${g}----------------------------------------- ${end}
 ${g}[ ${y}s ${end}${g}]${end} ${vr} Sobre${end}
 ${g}[ ${y}0 ${end}${g}]${end} ${vr} Sair${end}"
@@ -1241,13 +1239,11 @@ case $option in
 11) dell_past_temp ;;
 12) ssh_pdvs ;;
 13) gmcore ;;
-14) gateway_filiais ;;
-15) importa_pdvs ;;
-16) ping_test ;;
-17) ping_test_ip_link ;;
-) npdvs_monitor ;;
-18) links ;;
-19) administrativo
+14) ping_test ;;
+15) ping_test_ip_link ;;
+16) npdvs_monitor ;;
+17) links ;;
+18) administrativo
 s) sobre ;;
 0) NPDVsExit ;;
 *) echo " \"$option\" Opção inválida"; sleep 1 ;;
