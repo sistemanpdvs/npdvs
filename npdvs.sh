@@ -11,7 +11,7 @@
 # endc=end-color end=end-argument
 pdvs_ips='59 124 25 102 25 102 103 104 139 105 107 120 140 110 11 144 113 114 128 116 55 132 138 130 225 117' #FINAL dos IPS DOS PDVS...
 GW="254"
-version="3.3"
+version="3.4"
 GMCORE='6.36'
 MGVSERV="6.45"
 MGVUSER="leandro"
