@@ -1243,7 +1243,7 @@ case $option in
 15) ping_test_ip_link ;;
 16) npdvs_monitor ;;
 17) links ;;
-18) administrativo
+18) administrativo ;;
 s) sobre ;;
 0) NPDVsExit ;;
 *) echo " \"$option\" Opção inválida"; sleep 1 ;;
