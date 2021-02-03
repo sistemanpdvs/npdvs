@@ -146,7 +146,7 @@ NPDVsUpdate () {
   echo && echo -en " ${y}Precione ENTER para continuar${endc}"
   read input
   echo && echo -e " Atualizando ${b}NPDVs${end}, Por favor aguarde..."
-  rm -rf npdvs && git clone https://github.com/sistemanpdvs/npdvs.git && chmod +x .npdvs/npdvs.sh
+  rm -rf npdvs && git clone https://github.com/sistemanpdvs/npdvs.git && chmod +x ./npdvs/npdvs.sh && ./npdvs/npdvs.sh
   sleep 1 && echo -e " ${b}NPDVs${end} Atualização aplicada com sucesso "
   sleep 1 && echo -e " Restartando ${b}NPDVs${end}..."
   sleep 2
