@@ -9,7 +9,7 @@
 #Variáveis
 pdvs_ips='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
 GW="100"
-version="3.5"
+version="3.6"
 192.168.6.36="GMCORE"
 GMCORE='6.36'
 IPSERV='192.168'
@@ -35,43 +35,56 @@ endc='\E[0m'
 end='\033[0m'
 # (1) Reiniciar PDVs
 painel () {
-echo -e "
--------------------------------------${end}
-LOJA  | ${c}CIDADE ${endc}               |${vr}FAIXA${endc}|
--------------------------------------${end}
-  3   | ${c}SUPER SANTA INES${endc}      |${vr}3    ${endc}|
-  32  | ${c}MIX TIMON${endc}             |${vr}46   ${endc}|
-  39  | ${c}MIX CHAPADINHA${endc}        |${vr}114  ${endc}|
-  40  | ${c}SUPER BARRA DO CORDA${endc}  |${vr}231  ${endc}|
-  41  | ${c}MIX CAXIAS${endc}            |${vr}11   ${endc}|
-  47  | ${c}MIX BACABAL${endc}           |${vr}115 ${endc} |
-  48  | ${c}MIX PEDREIRAS${endc}         |${vr}93 ${endc}  |
-  91  | ${c}MIX SANTA INES${endc}        |${vr}91 ${endc}  |
-  99  | ${c}MIX PINHEIRO${endc}          |${vr}117 ${endc} |
-  55  | ${c}PRESIDENTE DULTRA${endc}     |${vr}55 ${endc}  |
-  65  | ${c}ELETRO SANTA INES${endc}     |${vr}65 ${endc}  |
-  68  | ${c}ELETRO SANTA LUZIA${endc}    |${vr}68 ${endc}  |
-  69  | ${c}ELETRO PEDREIRAS${endc}      |${vr}69 ${endc}  |
-  79  | ${c}ELETRO LAGO DA PEDRA${endc}  |${vr}79 ${endc}  |
-  131 | ${c}ELETRO BACABAL${endc}        |${vr}131 ${endc} |
-  163 | ${c}ELETRO COROATÁ${endc}        |${vr}37 ${endc}  |
-  164 | ${c}ELETRO TIMON${endc}          |${vr}166 ${endc} |
-  165 | ${c}ELETRO VIANA${endc}          |${vr}167 ${endc} |
-  170 | ${c}ELETRO SÃO MATEUS${endc}     |${vr}168 ${endc} |
-  173 | ${c}ELETRO COROTA 2${endc}       |${vr}191 ${endc} |
-  176 | ${c}ELETRO CODÓ 2${endc}         |${vr}185 ${endc} |
-  202 | ${c}SUPER CODÓ${endc}            |${vr}142 ${endc} |
-  251 | ${c}MIX PARNAIBA${endc}          |${vr}118 ${endc} |
-  252 | ${c}MIX TERESINA${endc}          |${vr}161 ${endc} |
-  431 | ${c}CAMINO LAGO DA PEDRA${endc}  |${vr}144 ${endc} |
-  433 | ${c}CAMINO VIANA${endc}          |${vr}136 ${endc} |
-  434 | ${c}CAMINO BARREIRINHAS${endc}   |${vr}000 ${endc} |
-  435 | ${c}CAMINO COROATÁ${endc}        |${vr}41 ${endc}  |
-  436 | ${c}CAMINO SANTA INES${endc}     |${vr}169 ${endc} |
-  439 | ${c}CAMINO MIRANDA${endc}        |${vr}170 ${endc} |
-  445 | ${c}CAMINO ITAPECURÚ${endc}      |${vr}170 ${endc} |
-  447 | ${c}CAMINO TUTÓIA${endc}         |${vr}146 ${endc} |
-------------------------------------- ${end}"
+echo -e "  ---------------------------------------------------${end}
+  |       ${c} PAINEL LOJAS - REGIONAL SANTA INÊS      ${endc} |
+  ---------------------------------------------------
+  | LOJAS | TEFs | ${c}CIDADE     ${endc}               |${vr}FAIXA${endc} |
+  ---------------------------------------------------${end}
+  |  3    | 3    | ${c}SUPER SANTA INÊS${endc}          |${vr}  3  ${endc} |
+  |  32   | 69   | ${c}MIX TIMON       ${endc}          |${vr}  46 ${endc} |
+  |  39   | 116  | ${c}MIX CHAPADINHA  ${endc}          |${vr}  114${endc} |
+  |  40   | 178  | ${c}SUPER BARRA DO CORDA${endc}      |${vr}  231${endc} |
+  |  41   | 134  | ${c}MIX CAXIAS      ${endc}          |${vr}  11 ${endc} |
+  |  42   | 183  | ${c}SUPER PRESIDENTE DUTRA${endc}    |${vr}  139${endc} |
+  |  47   | 118  | ${c}MIX BACABAL        ${endc}       |${vr}  115${endc} |
+  |  48   | 99   | ${c}MIX PEDREIRAS      ${endc}       |${vr}  93 ${endc} |
+  |  91   | 45   | ${c}MIX SANTA INÊS       ${endc}     |${vr}  91 ${endc} |
+  |  97   | 179  | ${c}MIX MATEUS TERESINA CEASA ${endc}|${vr}  160${endc} |
+  |  99   | 130  | ${c}MIX PINHEIRO             ${endc} |${vr}  117${endc} |
+  |  55   | 61   | ${c}ELETRO PRESIDENTE DRUTRA ${endc} |${vr}  55 ${endc} |
+  |  65   | 44   | ${c}ELETRO SANTA INÊS        ${endc} |${vr}  65 ${endc} |
+  |  68   | 43   | ${c}ELETRO SANTA LUZIA       ${endc} |${vr}  68 ${endc} |
+  |  69   | 36   | ${c}ELETRO PEDREIRAS         ${endc} |${vr}  69 ${endc} |
+  |  79   | 35   | ${c}ELETRO LAGO DA PEDRA     ${endc} |${vr}  79 ${endc} |
+  |  131  | 68   | ${c}ELETRO BACABAL           ${endc} |${vr}  131${endc} |
+  |  163  | 147  | ${c}ELETRO COROATÁ           ${endc} |${vr}  37 ${endc} |
+  |  164  | 136  | ${c}ELETRO TIMON             ${endc} |${vr}  166${endc} |
+  |  165  | 148  | ${c}ELETRO VIANA             ${endc} |${vr}  167${endc} |
+  |  170  | 152  | ${c}ELETRO SÃO MATEUS        ${endc} |${vr}  168${endc} |
+  |  172  | 172  | ${c}ELETRO MATEUS PAISSANDU  ${endc} |${vr}  213${endc} |
+  |  173  | 162  | ${c}ELETRO COROATÁ 2        ${endc}  |${vr}  191${endc} |
+  |  174  | 195  | ${c}ELETRO PIRIPIRÍ         ${endc}  |${vr}  198${endc} |
+  |  175  | 171  | ${c}ELETRO BARREIRINHAS     ${endc}  |${vr}  182${endc} |
+  |  176  | 165  | ${c}ELETRO CODÓ 2           ${endc}  |${vr}  185${endc} |
+  |  177  | 166  | ${c}ELETRO ITAPECURÚMIRIM${endc}     |${vr}  178${endc} |
+  |  182  | 164  | ${c}ELETRO CODÓ SÃO SEBASTIÃO${endc} |${vr}  184${endc} |
+  |  183  | 200  | ${c}ELETRO MATEUS KENNEDY    ${endc} |${vr}  204${endc} |
+  |  196  | 201  | ${c}ELETRO VITORINO FREIRI   ${endc} |${vr}  212${endc} |
+  |  202  | 188  | ${c}SUPER CODÓ               ${endc} |${vr}  142${endc} |
+  |  251  | 163  | ${c}MIX PNARNAÍNBA          ${endc}  |${vr}  118${endc} |
+  |  252  | 161  | ${c}MIX TERESINA            ${endc}  |${vr}  161${endc} |
+  |  431  | 133  | ${c}CAMINO LAGO DA PEDRA     ${endc} |${vr}  144${endc} |
+  |  433  | 154  | ${c}CAMINO VIANA             ${endc} |${vr}  136${endc} |
+  |  434  | 156  | ${c}CAMINO BARREIRINHAS     ${endc}  |${vr}  149${endc} |
+  |  435  | 155  | ${c}CAMINO COROATÁ          ${endc}  |${vr}  41 ${endc} |
+  |  436  | 143  | ${c}CAMINO SANTA INÊS        ${endc} |${vr}  169${endc} |
+  |  439  | 145  | ${c}CAMINO MIRANDA DO NONRTE ${endc} |${vr}  170${endc} |
+  |  445  | 176  | ${c}CAMINO ITAPECURÚMIRINM   ${endc} |${vr}  146${endc} |
+  |  446  | 175  | ${c}CAMINO SANTA LUZIA      ${endc}  |${vr}     ${endc} |
+  |  447  | 174  | ${c}CAMINO TUTÓIA           ${endc}  |${vr}  193${endc} |
+  ---------------------------------------------------
+  |              ${c} TOTAL - 42 FILIAIS ${endc}               |
+  --------------------------------------------------- ${end}"
 }
 # NPDVs Logo
 logoNPDVs () {
@@ -961,7 +974,7 @@ ${g}----------------------------------------- ${end}
 ${g}[ ${y}s ${end}${g}]${end} ${vr} SOBRE${end}
 ${g}[ ${y}0 ${end}${g}]${end} ${vr} SAIR${end}"
 echo -e "${g}-----------------------------------------${end}"
-  echo -en "  Selecione uma das opções e tecle ENTER: ➤ "
+echo -en "  Selecione uma das opções e tecle ENTER: ➤ "
 read option
 case $option in
 1) reiniciar_pdvs ;;
