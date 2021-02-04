@@ -11,12 +11,12 @@ By: Nilsonlinux
 
 Comando para instalação (Termux)
 ```bash
-pkg update && pkg install sshpass wget git && apt install openssh && git clone https://github.com/sistemanpdvs/npdvs.git && chmod +x ./npdvs/* && ./npdvs/npdvs.sh
+pkg update && pkg install sshpass git && apt install openssh && git clone https://github.com/sistemanpdvs/npdvs.git && chmod +x ./npdvs/* && ./npdvs/npdvs.sh
 ```
 
 Comando para instalação no desktop (Debian based)
 ```bash
-sudo apt install rdesktop sshpass wget git && git clone https://github.com/sistemanpdvs/npdvs.git && chmod +x ./npdvs/* && ./npdvs/npdvs.sh
+sudo apt install rdesktop sshpass git && git clone https://github.com/sistemanpdvs/npdvs.git && chmod +x ./npdvs/* && ./npdvs/npdvs.sh
 ```
 
 ## Após a instalação, utilize o comando 
