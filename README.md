@@ -15,7 +15,9 @@ pkg update && pkg install sshpass wget git && apt install openssh && wget https:
 ```
 
 Comando pra instalação com pasta e monitor host
-```pkg update && pkg install sshpass wget git && apt install openssh && git clone https://github.com/sistemanpdvs/npdvs.git && chmod +x ./npdvs/npdvs.sh && ./npdvs/npdvs.sh```
+```bash
+pkg update && pkg install sshpass wget git && apt install openssh && git clone https://github.com/sistemanpdvs/npdvs.git && chmod +x ./npdvs/npdvs.sh && ./npdvs/npdvs.sh
+```
 
 Comando para instalação no desktop (Debian based)
 ```bash
