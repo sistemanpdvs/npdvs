@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# CliPDVs.sh
+# NPDVs.sh
 # Automatização sobre demanda
 # Nilsonlinux 23/07/2020
 # Colabore com o projeto
