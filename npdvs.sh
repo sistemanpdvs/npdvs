@@ -14,6 +14,7 @@ version="3.5"
 GMCORE='6.36'
 IPSERV='192.168'
 RES="1920x1030"
+export DIR="$(dirname "$(readlink -f "$0")")"
 spath="$( cd "$( dirname $0 )" && pwd )"
 a='\033[1;33m'       # Amarelo
 p='\033[0;35m'       # Purple
@@ -32,8 +33,6 @@ c='\E[36m'
 w='\E[37m'
 endc='\E[0m'
 end='\033[0m'
-
-
 # (1) Reiniciar PDVs
 painel () {
 echo -e "
@@ -926,9 +925,11 @@ NPDVsADMstart () {
 }
 # ADM
 # NPDVs Status Host Monitor
-npdvs_status () {
-clear
-./npdvs_status.sh
+monitor () {
+  clear
+  logoNPDVs
+  $spath/monitor.sh
+  exit
 }
 # NPDVs Status Host Monitor
 # Infinite Loop To Show Menu Untill Exit
@@ -977,7 +978,7 @@ case $option in
 12) gmcore ;;
 13) ping_test ;;
 14) ping_test_ip_link ;;
-15) npdvs_status ;;
+15) monitor ;;
 16) links ;;
 17) adm ;;
 s) sobre ;;
