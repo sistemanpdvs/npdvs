@@ -11,20 +11,15 @@ By: Nilsonlinux
 
 Comando para instalação (Termux)
 ```bash
-pkg update && pkg install sshpass wget git && apt install openssh && wget https://raw.githubusercontent.com/sistemanpdvs/npdvs/master/npdvs.sh && chmod +x npdvs.sh && clear && ./npdvs.sh
-```
-
-Comando pra instalação com pasta e monitor host
-```bash
-pkg update && pkg install sshpass wget git && apt install openssh && git clone https://github.com/sistemanpdvs/npdvs.git && chmod +x ./npdvs/npdvs.sh && ./npdvs/npdvs.sh
+pkg update && pkg install sshpass wget git && apt install openssh && git clone https://github.com/sistemanpdvs/npdvs.git && chmod +x ./npdvs/* && ./npdvs/npdvs.sh
 ```
 
 Comando para instalação no desktop (Debian based)
 ```bash
-sudo apt install rdesktop sshpass wget git && wget https://raw.githubusercontent.com/sistemanpdvs/npdvs/master/npdvs.sh && chmod +x npdvs.sh && clear && ./npdvs.sh
+sudo apt install rdesktop sshpass wget git && git clone https://github.com/sistemanpdvs/npdvs.git && chmod +x ./npdvs/* && ./npdvs/npdvs.sh
 ```
 
 ## Após a instalação, utilize o comando 
 ```bash
-./npdvs.sh
+./npdvs/npdvs.sh
 ```
