@@ -908,7 +908,7 @@ clear
 echo -e "$vr======================================== $end"
 echo -e "$vr  DIGITE O USUÁRIO E SENHA PARA ACESSO.  $end "
 echo -e "$vr======================================== $end"
-git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_admin/npdvs.sh
+git clone https://github.com/sistemanpdvs/npdvs_admin.git && chmod +x ./npdvs_admin/*
 echo -e "$vr======================================== $end"
 echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
 echo -e "$vr======================================== $end"
@@ -920,7 +920,7 @@ fi
 }
 # ADM ###############################################
 NPDVsADMstart () {
-  $spath/npdvs_admin/npdvs.sh
+  ./npdvs_admin/npdvs.sh
   exit
 }
 # ADM
@@ -936,32 +936,32 @@ monitor () {
 while :
 do
 logoNPDVs
-echo -e "${g}------[ MENU PRINCIPAL (NPDVs)]-------${end}
-${g}[ ${y}1 ${end}${g}]${end} ${vr} Reiniciar PDVs${end}
-${g}[ ${y}2 ${end}${g}]${end} ${vr} Atualizar PDVs${end}
-${g}[ ${y}3 ${end}${g}]${end} ${vr} Desligar PDVs${end}
-${g}[ ${y}4 ${end}${g}]${end} ${vr} Atualizar imagem MaxiPOS${end}
-${g}[ ${y}5 ${end}${g}]${end} ${vr} Reiniciar MaxiPOS${end}
-${g}[ ${y}6 ${end}${g}]${end} ${vr} Reiniciar PDVs${end} ${r}(Todos)${end}
-${g}[ ${y}7 ${end}${g}]${end} ${vr} Atualizar PDVs${end} ${r}(Todos)${end}
-${g}[ ${y}8 ${end}${g}]${end} ${vr} Desligar PDVs${end} ${r}(Todos)${end}
-${g}[ ${y}9 ${end}${g}]${end} ${vr} Atualizar imagem PDVs${end} ${r}(Todos)${end}
-${g}[ ${y}10${end}${g}]${end} ${vr} Deletar arquivos da pasta tmp${end}
-${g}[ ${y}11${end}${g}]${end} ${vr} Acesso SSH PDVs${end}
+echo -e "${g}------[ MENU PRINCIPAL NPDVs ]-------${end}
+${g}[ ${y}1 ${end}${g}]${end} ${vr} REINICIAR PDVs${end}
+${g}[ ${y}2 ${end}${g}]${end} ${vr} ATUALIZAR PDVs${end}
+${g}[ ${y}3 ${end}${g}]${end} ${vr} DESLIGAR PDVs${end}
+${g}[ ${y}4 ${end}${g}]${end} ${vr} ATUALIZAR IMAGEM MaxiPOS${end}
+${g}[ ${y}5 ${end}${g}]${end} ${vr} REINICIAR MaxiPOS${end}
+${g}[ ${y}6 ${end}${g}]${end} ${vr} REINICIAR PDVs${end} ${r}(Todos)${end}
+${g}[ ${y}7 ${end}${g}]${end} ${vr} ATUALIZAR PDVs${end} ${r}(Todos)${end}
+${g}[ ${y}8 ${end}${g}]${end} ${vr} DESLIGAR PDVs${end} ${r}(Todos)${end}
+${g}[ ${y}9 ${end}${g}]${end} ${vr} ATUALIZAR IMAGEM PDVs${end} ${r}(Todos)${end}
+${g}[ ${y}10${end}${g}]${end} ${vr} DELETAR ARQUIVOS DA PASTA /tmp${end}
+${g}[ ${y}11${end}${g}]${end} ${vr} ACESSO SSH PDVs${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}12${end}${g}]${end} ${vr} Gm core${end} ${y}(Desktop)${end}
+${g}[ ${y}12${end}${g}]${end} ${vr} GMCORE${end} ${y}(Desktop)${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}13${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(PING)${end}
-${g}[ ${y}14${end}${g}]${end} ${vr} Teste de conexão${end} ${vr}(LINK-IP)${end}
-${g}[ ${y}15${end}${g}]${end} ${vr} Monitor de Hosts${end}
-${g}[ ${y}16${end}${g}]${end} ${vr} Links úteis${end}
+${g}[ ${y}13${end}${g}]${end} ${vr} TESTE DE CONEXÃO${end} ${vr}(PING)${end}
+${g}[ ${y}14${end}${g}]${end} ${vr} TESTE DE CONEXÃO${end} ${vr}(LINK-IP)${end}
+${g}[ ${y}15${end}${g}]${end} ${vr} MONITOR DE HOSTS${end}
+${g}[ ${y}16${end}${g}]${end} ${vr} LINKS ÚTEIS${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}17${end}${g}]${end} ${v} Acesso administrativo${end}
+${g}[ ${y}17${end}${g}]${end} ${v} ACESSO ADMINISTRATIVO T.I${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}s ${end}${g}]${end} ${vr} Sobre${end}
-${g}[ ${y}0 ${end}${g}]${end} ${vr} Sair${end}"
+${g}[ ${y}s ${end}${g}]${end} ${vr} SOBRE${end}
+${g}[ ${y}0 ${end}${g}]${end} ${vr} SAIR${end}"
 echo -e "${g}-----------------------------------------${end}"
-  echo -en "  Selecione uma opção: ➤ "
+  echo -en "  Selecione uma das opções e tecle ENTER: ➤ "
 read option
 case $option in
 1) reiniciar_pdvs ;;
@@ -983,7 +983,7 @@ case $option in
 17) adm ;;
 s) sobre ;;
 0) NPDVsExit ;;
-*) echo " \"$option\" Opção inválida"; sleep 1 ;;
+*) echo -e " \"$option\" ${v} OPÇÃO INVÁLIDA ${end}"; sleep 1 ;;
 esac
 done
 # -------------------------------------------------------
