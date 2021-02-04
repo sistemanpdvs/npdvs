@@ -66,7 +66,7 @@ LOJA  | ${c}CIDADE ${endc}               |${vr}FAIXA${endc}|
   252 | ${c}MIX TERESINA${endc}          |${vr}161 ${endc} |
   431 | ${c}CAMINO LAGO DA PEDRA${endc}  |${vr}144 ${endc} |
   433 | ${c}CAMINO VIANA${endc}          |${vr}136 ${endc} |
-  434 | ${c}CAMINO BARREIRINHAS${endc}   |${vr}000 ${endc} |	
+  434 | ${c}CAMINO BARREIRINHAS${endc}   |${vr}000 ${endc} |
   435 | ${c}CAMINO COROATÁ${endc}        |${vr}41 ${endc}  |
   436 | ${c}CAMINO SANTA INES${endc}     |${vr}169 ${endc} |
   439 | ${c}CAMINO MIRANDA${endc}        |${vr}170 ${endc} |
