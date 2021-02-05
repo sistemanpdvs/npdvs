@@ -1,5 +1,6 @@
+*** NOVA ATUALIZAÇÃO. 04/02/2021 ***
 * Retornando as atividades pessoal.
-Estava trabalhando em outro pequeno projeto pessoal,
+Eu estava trabalhando em outro pequeno projeto pessoal,
 que em breve disponibilizarei pra todos. 
 Agradeço a cada um que utiliza este script.
 Jerbeson um abraço meu brother. 
