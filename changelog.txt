@@ -1,5 +1,13 @@
+* Retornando as atividades pessoal.
+Estava trabalhando em outro pequeno projeto pessoal,
+que em breve disponibilizarei pra todos. 
+Agradeço a cada um que utiliza este script.
+Jerbeson um abraço meu brother. 
+* Novas idéias serão implementadas. 
+----------
+HiSTÓRICO.
+----------
 * Adicionado novas filiais
-* Adicionado o acesso SSH
 * Adicionado a opção para a exclusão dos arquivos temporário na pasta /tmp
 para correção das transações executadas através do auxílio emergencial. 
 * Receba notificação de atualização na inicialização do script.
