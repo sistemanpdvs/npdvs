@@ -7,6 +7,9 @@ Jerbeson um abraço meu brother.
 ----------
 HiSTÓRICO.
 ----------
+* Painel lojas atualizado.
+* Adicionado Tefs nas informações contidas no painel
+de cada filial.
 * Adicionado novas filiais
 * Adicionado a opção para a exclusão dos arquivos temporário na pasta /tmp
 para correção das transações executadas através do auxílio emergencial. 
