@@ -23,3 +23,4 @@ sudo apt install rdesktop sshpass git && git clone https://github.com/sistemanpd
 ```bash
 ./npdvs/npdvs.sh
 ```
+
