@@ -7,9 +7,9 @@
 # https://github.com/nilsonlinux/npdvs
 # -------------------------------------------------------
 #Variáveis
-pdvs_ips='139 131 122 123 124 25 102 103 104 105 107 120 140 133 110 11 112 113 114 130 116 55 59 117 225 132 138 128' #FINAL dos IPS DOS PDVS...
+pdvs_ips='100 101 102 103 104 105' #FINAL dos IPS DOS PDVS...
 GW="100"
-version="3.7"
+version="3.8"
 192.168.6.36="GMCORE"
 GMCORE='6.36'
 IPSERV='192.168'
@@ -842,6 +842,33 @@ echo -e "${y}Retornando para o menu principal.
 sleep 3
 fi
 }
+# doe
+doe () {
+  clear
+                               logoNPDVs
+echo -e " --------------------------------------------- ${end}"
+echo -e "${c} AJUDE COM O DESENVOLVIMENTO DESTE PROJETO.${end}"
+echo -e " --------------------------------------------- ${end}"
+echo -e "${y} INDEPENDENTE DO VALOR, 
+ SUA AJUDA SERÁ SIMBÓLICAMENTE UMA FORMA, 
+ DE AGRADECER O DESENVOLVEDOR.${end}"
+echo -e " --------------------------------------------- ${end}"
+echo -e "${b}
+COMO AJUDAR O DESENVOLVEDOR?${end}"
+echo -e "${vr}DOAÇÕES SOMENTE VIA PIX.${end}"
+echo -e
+echo -e "${v}CHAVE PARA TRANFERÊNCIA.${end}"
+echo -e "${vr}nilsonlinux@gmail.com${end}"
+echo -e
+echo -e " --------------------------------------------- ${end}"
+echo -e "${vr}TOTAL DE CONTRIBUIÇÕES.${end}: ${y}R$ - ${end}${r}0,00${end}"
+echo -e " --------------------------------------------- ${end}"
+echo -e "${vr}TOTAL DE CONTRIBUIDORES ${y} - ${end}${r}0${end}"
+
+  echo && echo -en "${yellow}Precione enter para retornar ao Menu principal.${endc}"
+  read input
+}
+# doe
 # Show About
 sobre () {
   clear
@@ -967,9 +994,12 @@ ${g}----------------------------------------- ${end}
 ${g}[ ${y}13${end}${g}]${end} ${vr} TESTE DE CONEXÃO${end} ${vr}(PING)${end}
 ${g}[ ${y}14${end}${g}]${end} ${vr} TESTE DE CONEXÃO${end} ${vr}(LINK-IP)${end}
 ${g}[ ${y}15${end}${g}]${end} ${vr} MONITOR DE HOSTS${end}
+${g}----------------------------------------- ${end}
 ${g}[ ${y}16${end}${g}]${end} ${vr} LINKS ÚTEIS${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}17${end}${g}]${end} ${v} ACESSO ADMINISTRATIVO T.I${end}
+${g}[ ${y}17${end}${g}]${end} ${vr} DOE QUALQUER VALOR${end}
+${g}----------------------------------------- ${end}
+${g}[ ${y}18${end}${g}]${end} ${v} ACESSO ADMINISTRATIVO T.I${end}
 ${g}----------------------------------------- ${end}
 ${g}[ ${y}s ${end}${g}]${end} ${vr} SOBRE${end}
 ${g}[ ${y}0 ${end}${g}]${end} ${vr} SAIR${end}"
@@ -993,7 +1023,8 @@ case $option in
 14) ping_test_ip_link ;;
 15) monitor ;;
 16) links ;;
-17) adm ;;
+17) doe ;;
+18) adm ;;
 s) sobre ;;
 0) NPDVsExit ;;
 *) echo -e " \"$option\" ${v} OPÇÃO INVÁLIDA ${end}"; sleep 1 ;;
