@@ -1,10 +1,9 @@
-*** NOVA ATUALIZAÇÃO. 04/02/2021 ***
-* Retornando as atividades pessoal.
-Eu estava trabalhando em outro pequeno projeto pessoal,
-que em breve disponibilizarei pra todos. 
+*** NOVA ATUALIZAÇÃO. 23/02/2021 ***
+* Estou completando mais uma primavera nesta data...
 Agradeço a cada um que utiliza este script.
-Jerbeson um abraço meu brother. 
-* Novas idéias serão implementadas. 
+* Novas idéias serão implementadas.
+* Adicionado a opção para contruibuir com o projeto.
+* Ajude o desenvolvedor deste projeto Opção (17).
 ----------
 HiSTÓRICO.
 ----------
