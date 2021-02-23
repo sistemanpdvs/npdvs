@@ -218,7 +218,6 @@ clear
   clear
 logoNPDVs
 echo -e " ${r}REINICIALIZAÇÃO DOS TERMINAIS (NPDVs) ${end}"
-loja
 echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA REINICIAR: ${end}"
 read -p "$IPSERV.$FX." $read IP
 echo -e "${r}---------------------------------------------------${end}"
@@ -270,7 +269,6 @@ clear
   clear
 logoNPDVs
 echo -e " ${c}ATUALIZAÇÃO DOS TERMINAIS (NPDVs) ${end}"
-loja
 echo -e "DIGITE O ${c}FINAL DO IP${end} ${br}QUE DESEJA ATUALIZAR: ${end}"
 read -p "$IPSERV.$FX." $read IP
 echo -e "${c}---------------------------------------------------${end}"
@@ -356,7 +354,6 @@ clear
   clear
 logoNPDVs
 echo -e " ${r}🚨 DESLIGAMENTO DOS TERMINAIS (CliPDVs) 🚨 ${end}"
-loja
 echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA DESLIGAR: ${end}"
 read -p "$IPSERV.$FX." $read IP
 echo -e "${r}---------------------------------------------------${end}"
@@ -475,7 +472,6 @@ clear
   clear
   logoNPDVs
 echo -e " ${c}ATUALIZAÇÃO DE IMAGEM DOS TERMINAIS (NPDVs)"
-loja
 echo -e "DIGITE O ${c}FINAL DO IP${end} ${br}QUE DESEJA ATUALIZAR IMAGEM: ${end}"
 read -p "$IPSERV.$FX." $read IP
 echo -e "${bu}---------------------------------------------------${end}"
@@ -560,7 +556,6 @@ clear
   clear
 logoNPDVs
 echo -e " ${r}REINICIALIZAÇÃO DO MAXIPOS (NPDVs)"
-loja
 echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA REINICIAR O MAXIPOS: ${end}"
 read -p "$IPSERV.$FX." $read IP
 echo -e "${r}---------------------------------------------------${end}"
@@ -749,7 +744,6 @@ clear
   clear
 logoNPDVs
 echo -e " ${r}APAGAR ARQUIVOS TEMPORÁRIOS MAXIPOS (NPDVs)"
-loja
 echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA APAGAR A PASTA TEMPORÁRIA: ${end}"
 read -p "$IPSERV.$FX." $read IP
 echo -e "${r}---------------------------------------------------${end}"
@@ -801,7 +795,6 @@ clear
   clear
 logoNPDVs
 echo -e " ${c}ACESSO SSH TERMINAIS (NPDVs)${end}"
-loja
 echo -e "DIGITE O ${c}FINAL DO IP${end} ${br}ACESSAR VIA SSH: ${end}"
 read -p "$IPSERV.$FX." $read IP
 echo -e "${c}---------------------------------------------------${end}"
