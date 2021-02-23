@@ -9,7 +9,7 @@
 #Variáveis
 pdvs_ips='100 101 102 103 104 105' #FINAL dos IPS DOS PDVS...
 GW="100"
-version="3.8"
+version="3.9"
 192.168.6.36="GMCORE"
 GMCORE='6.36'
 IPSERV='192.168'
