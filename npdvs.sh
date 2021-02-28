@@ -7,9 +7,9 @@
 # https://github.com/nilsonlinux/npdvs
 # -------------------------------------------------------
 #Variáveis
-pdvs_ips='100 101 102 103 104 105' #FINAL dos IPS DOS PDVS...
+pdvs_ips="101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130" #FINAL dos IPS DOS PDVS...
 GW="100"
-version="3.9"
+version="4.0"
 192.168.6.36="GMCORE"
 GMCORE='6.36'
 IPSERV='192.168'
@@ -411,7 +411,7 @@ echo -e "${y}⌛Aguarde enquanto executo o comando
 ${bu}it-update-pdv.sh${end} ${y}em todos os terminais ⌛ ${end}
 ${bu}--------------------------------------------------- ${end}"
 ##############
-${pdvs_ips}
+${pdv_ips}
 for pdvs_ips in ${pdvs_ips}
 do
     echo -e "${bu}Atualizando terminal${end} ${g}IP${end} - ${vr}${IPSERV}.${FX}.${pdvs_ips}${endc} ⌛"
