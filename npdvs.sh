@@ -82,8 +82,8 @@ echo -e "  ---------------------------------------------------${end}
   |  445  | 176  | ${c}CAMINO ITAPECURÚMIRINM   ${endc} |${vr}  146${endc} |
   |  446  | 175  | ${c}CAMINO SANTA LUZIA      ${endc}  |${vr}  223${endc} |
   |  447  | 174  | ${c}CAMINO TUTÓIA           ${endc}  |${vr}  193${endc} |
-  |  450  | 213  | ${c}CAMINO ZE DOCA           ${endc} |${vr}  234{endc}  |
-  |  451  | 207  | ${c}CAMINO VARGEM GRANDE     ${endc} |${vr}  232{endc}  |
+  |  450  | 213  | ${c}CAMINO ZE DOCA           ${endc} |${vr}  234${endc} |
+  |  451  | 207  | ${c}CAMINO VARGEM GRANDE     ${endc} |${vr}  232${endc} |
   ---------------------------------------------------
   |              ${c} TOTAL - 42 FILIAIS ${endc}               |
   --------------------------------------------------- ${end}"
