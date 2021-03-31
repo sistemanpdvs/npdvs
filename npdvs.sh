@@ -7,9 +7,10 @@
 # https://github.com/nilsonlinux/npdvs
 # -------------------------------------------------------
 #Variáveis
+UPDATE="wget -O /tmp/gmcorepdv.deb http://192.168.3.122/gmcorepdv.deb && dpkg -i /tmp/gmcorepdv.deb && reboot"
 pdvs_ips="101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130" #FINAL dos IPS DOS PDVS...
 GW="100"
-version="4.1"
+version="4.2"
 192.168.6.36="GMCORE"
 GMCORE='6.36'
 IPSERV='192.168'
@@ -953,6 +954,57 @@ NPDVsADMstart
 sleep 3
 fi
 }
+################################### (11) Atualizar GMCORE PDVs ######################################
+gmcore_pdvs () {
+  logoNPDVs
+echo -e " ${r}ATUALIZAÇÃO GMCORE TS.MATES (NPDVs)"
+painel
+echo -e "DIGITE A ${y}FAIXA${end} ${r}REFERÊNTE A SUA FILIAL: ${end}"
+read -p "$IPSERV." $read FX
+clear
+##########
+  clear
+logoNPDVs
+echo -e " ${r}ATUALIZAÇÃO GMCORE TS.MATES (NPDVs)"
+echo -e "DIGITE O ${y}FINAL DO IP${end} ${r}QUE DESEJA ATUALIZAR O GMCORE: ${end}"
+read -p "$IPSERV.$FX." $read IP
+echo -e "${r}---------------------------------------------------${end}"
+echo -e "${y}⌛Aguarde enquanto testamos conexão com o terminal ⌛${end}"
+sleep 1
+if ! ping -c 1 $IPSERV.$FX.$IP >> /dev/null ; then
+clear
+echo -e "$v======================================= $end"
+echo -e "$v       TERMINAL DESCONECTADO.           $end"
+echo -e "$v======================================= $end"
+echo -e "$v      _____ ____  ____   ___    _       $end"
+echo -e "$v     | ____|  _ \|  _ \ / _ \  | |      $end"
+echo -e "$v     |  _| | |_) | |_) | | | | | |      $end"
+echo -e "$v     | |___|  _ <|  _ <| |_| | |_|      $end"
+echo -e "$v     |_____|_| \_\_| \_\\____/  (_)     $end"
+echo && echo -e "$v======================================= $end"
+echo -e "$v======[ $br Status da requisição $ec $v]======= $end"
+echo -e "$a IP $end-$bu $IPSERV.$FX.$IP $end- $v Sem conexão ✗$end" 
+echo -e "$v======================================= $end"
+echo -en "${y}Precione enter para retornar para o manu.${endc}"
+read input
+echo -e "$v=======================================$end" 
+else
+clear
+echo -e "$vr======================================== $end"
+echo -e "$vr         TERMINAL CONECTADO.  $end "
+echo -e "$vr======================================== $end"
+sshpass -p 1 ssh -o "StrictHostKeyChecking no" root@192.168.$FX.$IP "$UPDATE";
+echo -e "$vr=======[ $br Status da requisição $ec $vr]=======$end"
+echo -e "$a IP $end -$bu $IPSERV.$FX.$IP $end- $vr Conectado ✔$end"
+echo -e "$vr======================================== $end"
+echo -e "$vr    COMANDO EXECUTADO COM SUCESSO... $end"
+echo -e "$vr======================================== $end"
+echo -e "${y}Retornando para o menu principal.
+⌛Por favor aguarde ⌛${endc}"
+sleep 5
+fi
+}
+# --------------
 # ADM ###############################################
 NPDVsADMstart () {
   ./npdvs_admin/npdvs.sh
@@ -983,18 +1035,19 @@ ${g}[ ${y}8 ${end}${g}]${end} ${vr} DESLIGAR PDVs${end} ${r}(Todos)${end}
 ${g}[ ${y}9 ${end}${g}]${end} ${vr} ATUALIZAR IMAGEM PDVs${end} ${r}(Todos)${end}
 ${g}[ ${y}10${end}${g}]${end} ${vr} DELETAR ARQUIVOS DA PASTA /tmp${end}
 ${g}[ ${y}11${end}${g}]${end} ${vr} ACESSO SSH PDVs${end}
+${g}[ ${y}12${end}${g}]${end} ${vr} GMCORE PDVs (ts.mateus)${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}12${end}${g}]${end} ${vr} GMCORE${end} ${y}(Desktop)${end}
+${g}[ ${y}13${end}${g}]${end} ${vr} GMCORE${end} ${y}(Desktop)${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}13${end}${g}]${end} ${vr} TESTE DE CONEXÃO${end} ${vr}(PING)${end}
-${g}[ ${y}14${end}${g}]${end} ${vr} TESTE DE CONEXÃO${end} ${vr}(LINK-IP)${end}
-${g}[ ${y}15${end}${g}]${end} ${vr} MONITOR DE HOSTS${end}
+${g}[ ${y}14${end}${g}]${end} ${vr} TESTE DE CONEXÃO${end} ${vr}(PING)${end}
+${g}[ ${y}15${end}${g}]${end} ${vr} TESTE DE CONEXÃO${end} ${vr}(LINK-IP)${end}
+${g}[ ${y}16${end}${g}]${end} ${vr} MONITOR DE HOSTS${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}16${end}${g}]${end} ${vr} LINKS ÚTEIS${end}
+${g}[ ${y}17${end}${g}]${end} ${vr} LINKS ÚTEIS${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}17${end}${g}]${end} ${vr} DOE QUALQUER VALOR${end}
+${g}[ ${y}18${end}${g}]${end} ${vr} DOE QUALQUER VALOR${end}
 ${g}----------------------------------------- ${end}
-${g}[ ${y}18${end}${g}]${end} ${v} ACESSO ADMINISTRATIVO T.I${end}
+${g}[ ${y}19${end}${g}]${end} ${v} ACESSO ADMINISTRATIVO T.I${end}
 ${g}----------------------------------------- ${end}
 ${g}[ ${y}s ${end}${g}]${end} ${vr} SOBRE${end}
 ${g}[ ${y}0 ${end}${g}]${end} ${vr} SAIR${end}"
@@ -1013,13 +1066,14 @@ case $option in
 9) atualizar_imagem_todos ;;
 10) dell_past_temp ;;
 11) ssh_pdvs ;;
-12) gmcore ;;
-13) ping_test ;;
-14) ping_test_ip_link ;;
-15) monitor ;;
-16) links ;;
-17) doe ;;
-18) adm ;;
+12) gmcore_pdvs ;;
+13) gmcore ;;
+14) ping_test ;;
+15) ping_test_ip_link ;;
+16) monitor ;;
+17) links ;;
+18) doe ;;
+19) adm ;;
 s) sobre ;;
 0) NPDVsExit ;;
 *) echo -e " \"$option\" ${v} OPÇÃO INVÁLIDA ${end}"; sleep 1 ;;
