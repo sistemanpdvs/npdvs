@@ -1035,7 +1035,7 @@ ${g}[ ${y}8 ${end}${g}]${end} ${vr} DESLIGAR PDVs${end} ${r}(Todos)${end}
 ${g}[ ${y}9 ${end}${g}]${end} ${vr} ATUALIZAR IMAGEM PDVs${end} ${r}(Todos)${end}
 ${g}[ ${y}10${end}${g}]${end} ${vr} DELETAR ARQUIVOS DA PASTA /tmp${end}
 ${g}[ ${y}11${end}${g}]${end} ${vr} ACESSO SSH PDVs${end}
-${g}[ ${y}12${end}${g}]${end} ${vr} GMCORE PDVs (ts.mateus)${end}
+${g}[ ${y}12${end}${g}]${end} ${vr} UPDATE [GMCORE PDVs] (ts.mateus)${end}
 ${g}----------------------------------------- ${end}
 ${g}[ ${y}13${end}${g}]${end} ${vr} GMCORE${end} ${y}(Desktop)${end}
 ${g}----------------------------------------- ${end}
