@@ -1,9 +1,13 @@
-*** NOVA ATUALIZAÇÃO. 23/02/2021 ***
-* Estou completando mais uma primavera nesta data...
-Agradeço a cada um que utiliza este script.
-* Novas idéias serão implementadas.
-* Adicionado a opção para contruibuir com o projeto.
-* Ajude o desenvolvedor deste projeto Opção (17).
+*** NOVA ATUALIZAÇÃO. 31/03/2021 ***
+* ADICIONADO A OPÇÃO UPDATE
+QUE ESTÁ TRAZENDO MEIO QUE ATRASADO 
+UMA FORMA DE ATUALIZAR O ANTIGO ACESSO AO
+GMCORE PELO NOVO DOMÍNIO TS.MATEUS.
+OPÇÃO = 12 DO MENU.
+SEMPRE QUE LANÇARMOS ALGUMA ATUALIZAÇÃO,
+SEJA DO CLISITEF, VERSÃO OU OUTRA MODIFICAÇÃO,
+VOCÊ ENCONTRARÁ AQUI.
+
 ----------
 HiSTÓRICO.
 ----------
